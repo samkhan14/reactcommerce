@@ -56,7 +56,7 @@ const Header = () => {
 				</div>
 			</nav>
 		</div>
-		<div className="search_input" id="search_input_box">
+		{/* <div className="search_input" id="search_input_box">
 			<div className="container">
 				<form className="d-flex justify-content-between">
 					<input type="text" className="form-control" id="search_input" placeholder="Search Here" />
@@ -64,7 +64,7 @@ const Header = () => {
 					<span className="lnr lnr-cross" id="close_search" title="Close Search"></span>
 				</form>
 			</div>
-		</div>
+		</div> */}
 	</header>
 	
   )

@@ -1,4 +1,8 @@
-<section class="exclusive-deal-area">
+import React from 'react'
+
+export const HotDeals = () => {
+  return (
+	<section class="exclusive-deal-area">
 		<div class="container-fluid">
 			<div class="row justify-content-center align-items-center">
 				<div class="col-lg-6 no-padding exclusive-left">
@@ -28,13 +32,13 @@
 							</div>
 						</div>
 					</div>
-					<a href="" class="primary-btn">Shop Now</a>
+					<a href="javascriptvoid(0)" class="primary-btn">Shop Now</a>
 				</div>
 				<div class="col-lg-6 no-padding exclusive-right">
 					<div class="active-exclusive-product-slider">
-						<!-- single exclusive carousel -->
+					
 						<div class="single-exclusive-slider">
-							<img class="img-fluid" src="img/product/e-p1.png" alt="">
+							<img class="img-fluid" src="assets/img/product/e-p1.png" alt=""/>
 							<div class="product-details">
 								<div class="price">
 									<h6>$150.00</h6>
@@ -43,14 +47,14 @@
 								<h4>addidas New Hammer sole
 									for Sports person</h4>
 								<div class="add-bag d-flex align-items-center justify-content-center">
-									<a class="add-btn" href=""><span class="ti-bag"></span></a>
+									<a class="add-btn" href="javascriptvoid(0)"><span class="ti-bag"></span></a>
 									<span class="add-text text-uppercase">Add to Bag</span>
 								</div>
 							</div>
 						</div>
-						<!-- single exclusive carousel -->
-						<div class="single-exclusive-slider">
-							<img class="img-fluid" src="img/product/e-p1.png" alt="">
+					
+						{/* <div class="single-exclusive-slider">
+							<img class="img-fluid" src="assets/img/product/e-p1.png" alt=""/>
 							<div class="product-details">
 								<div class="price">
 									<h6>$150.00</h6>
@@ -59,13 +63,16 @@
 								<h4>addidas New Hammer sole
 									for Sports person</h4>
 								<div class="add-bag d-flex align-items-center justify-content-center">
-									<a class="add-btn" href=""><span class="ti-bag"></span></a>
+									<a class="add-btn" href="javascriptvoid(0)"><span class="ti-bag"></span></a>
 									<span class="add-text text-uppercase">Add to Bag</span>
 								</div>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+	
+  )
+}

@@ -1,0 +1,10 @@
+section.banner-area {
+  min-height: 850px;
+}
+
+.active-banner-slider {
+  display: flex;
+  align-items: center;
+  height: 710px;
+  justify-content: center;
+}

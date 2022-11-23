@@ -1,13 +1,12 @@
-import React from "react";
-
+import './banner.css';
 const Banner = () => {
   return (
     <section className="banner-area">
       <div className="container">
         <div className="row fullscreen align-items-center justify-content-start">
           <div className="col-lg-12">
-            <div className="active-banner-slider owl-carousel">
-              <div className="row single-slide align-items-center d-flex">
+            <div className="active-banner-slider">
+              <div className="row  align-items-center d-flex">
                 <div className="col-lg-5 col-md-6">
                   <div className="banner-content">
                     <h1>
@@ -39,7 +38,7 @@ const Banner = () => {
                 </div>
               </div>
 
-              <div className="row single-slide">
+              {/* <div className="row single-slide">
                 <div className="col-lg-5">
                   <div className="banner-content">
                     <h1>
@@ -69,7 +68,7 @@ const Banner = () => {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
