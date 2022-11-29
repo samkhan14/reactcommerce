@@ -7,13 +7,23 @@ import SingleProduct from './Pages/Products/SingleProduct';
 import Cart from './Pages/Cart/Cart';
 import { ErrorPage } from './Pages/ErrorPage/ErrorPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { GlobalStyleComponent } from './Components/GlobalStyleComponent';
+import { GlobalStyle } from './Components/GlobalStyle';
+import { ThemeProvider } from 'styled-components';
+
+//theme obj defined
+const theme = {
+  colors:{
+    bg:"#fff",
+    color:"#000"
+  },
+}
 
 function App() {
   return (
     <>
+    <ThemeProvider theme={theme}>
     <Router>
-      <GlobalStyleComponent />
+      <GlobalStyle />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
@@ -24,10 +34,7 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
-    
-    {/* <div className="App">
-      <Home />    
-    </div> */}
+    </ThemeProvider>
     </>
   );
 }

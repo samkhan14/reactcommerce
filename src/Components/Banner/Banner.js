@@ -1,6 +1,16 @@
 import './banner.css';
+// import styled from 'styled-components';
+
+// const Wrapper = styled.div `
+//   background-color: ${({ theme }) => theme.colors.bg};
+//   width:20rem;
+//   height:20rem;
+
+// `;
+
 const Banner = () => {
   return (
+    
     <section className="banner-area">
       <div className="container">
         <div className="row fullscreen align-items-center justify-content-start">
@@ -72,6 +82,9 @@ const Banner = () => {
             </div>
           </div>
         </div>
+        {/* <Wrapper className='test'>
+          <h3>Hello Styled Components</h3>
+        </Wrapper> */}
       </div>
     </section>
   );
