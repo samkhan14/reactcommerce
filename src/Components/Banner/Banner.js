@@ -11,7 +11,7 @@ import './banner.css';
 const Banner = () => {
   return (
     
-    <section className="banner-area">
+    <section className="banner-area home-banner">
       <div className="container">
         <div className="row fullscreen align-items-center justify-content-start">
           <div className="col-lg-12">

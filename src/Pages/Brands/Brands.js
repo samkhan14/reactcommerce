@@ -3,19 +3,20 @@ import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import InnerHeader from '../../Components/Inner_Banners/InnerHeader';
 
-const Cart = () => {
+const Brands = () => {
 
   const heading = {
-    name: "Cart",
-    slogan:"Cart",
+    name: 'Brands',
+    slogan: 'Brand'
   }
 
   return (
     <div>
-    <Header/>
-    <InnerHeader heading={heading}/>
-    <Footer/>
+      <Header/>
+      <InnerHeader heading={heading}/>
+      <Footer/>
     </div>
+    
   )
 }
-export default Cart;
+export  default Brands;
