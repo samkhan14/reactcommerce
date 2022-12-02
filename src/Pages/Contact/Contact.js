@@ -1,6 +1,5 @@
 import React from 'react'
-import Footer from "../../Components/Footer/Footer";
-import Header from "../../Components/Header/Header";
+
 import InnerHeader from "../../Components/Inner_Banners/InnerHeader";
 import Form from '../Contact/Form';
 
@@ -12,8 +11,7 @@ const Contact = () => {
   };
 
   return (
-    <div>
-        <Header />
+    <div>       
         <InnerHeader heading={heading} />
 
 	<section className="contact_area section_gap_bottom">
@@ -46,9 +44,7 @@ const Contact = () => {
 				</div>
 			</div>
 		</div>
-	</section>
-
-      <Footer />
+	</section>    
     </div>
   )
 }

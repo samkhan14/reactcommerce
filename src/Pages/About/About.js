@@ -1,6 +1,4 @@
 import React from "react";
-import Footer from "../../Components/Footer/Footer";
-import Header from "../../Components/Header/Header";
 import InnerHeader from "../../Components/Inner_Banners/InnerHeader";
 
 const About = () => {
@@ -10,10 +8,8 @@ const About = () => {
   };
 
   return (
-    <div>
-      <Header />
-      <InnerHeader heading={heading} />
-      <Footer />
+    <div>    
+      <InnerHeader heading={heading} />    
     </div>
   );
 };

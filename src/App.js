@@ -10,6 +10,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GlobalStyle } from "./Components/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import Brands from "./Pages/Brands/Brands";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 
 //theme obj defined
 const theme = {
@@ -25,6 +27,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Router>
           <GlobalStyle />
+          <Header/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/About" element={<About />} />
@@ -35,6 +38,7 @@ function App() {
             <Route path="/Cart" element={<Cart />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
+          <Footer/>
         </Router>
       </ThemeProvider>
     </>
