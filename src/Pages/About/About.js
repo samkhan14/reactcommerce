@@ -1,7 +1,11 @@
-import React from "react";
 import InnerHeader from "../../Components/Inner_Banners/InnerHeader";
+import { useProductContext } from "../../contexts/ProductContaxt";
+
 
 const About = () => {
+
+  const {myname} = useProductContext();
+
   const heading = {
     name: "About Us",
     slogan: "About",
@@ -9,6 +13,7 @@ const About = () => {
 
   return (
     <div>    
+      {myname}
       <InnerHeader heading={heading} />    
     </div>
   );
