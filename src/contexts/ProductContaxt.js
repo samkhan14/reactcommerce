@@ -1,30 +1,44 @@
-import axios from "axios";
-import { createContext, useContext, useEffect } from "react";
+import axios from 'axios';
+import { createContext, useContext, useEffect, useReducer } from "react";
+import reducer from "../reducers/ProductReducer";
 
 const AppContext = createContext();
 
 const API = "https://api.pujakaitem.com/api/products";
 
-const AppProvider = ({children}) => {
-    const getProducts = async (url) => {
-        const res = await axios.get(url);
-        const products = res.data;
-        console.log(products);
-    }
-    
-    useEffect(() => {
-        getProducts(API);
-    }, []);
+const initialState = {
+  isLoading: false,
+  isError: false,
+  products: [],
+  feturedProducts: [],
+};
 
-    return <AppContext.Provider value={{ myname:"Sumaim Ahmed"}}>
-    {children}
-    </AppContext.Provider>
+const AppProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const getProducts = async (url) => {
+    dispatch({ type: "SET_LOADING" });
+    try {
+      const res = await axios.get(url);
+      const products = res.data;
+      dispatch({ type: "SET_PRODUCTS_DATA", payload: products });
+    } catch (error) {
+      dispatch({ type: "API_ERROR" });
+    }
+    // console.log(products);
+  };
+
+  useEffect(() => {
+    getProducts(API);
+  }, []);
+
+  return (
+    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+  );
 };
 
 const useProductContext = () => {
-    return useContext(AppContext);
-    
-}
+  return useContext(AppContext);
+};
 
-
-export { AppProvider, AppContext, useProductContext};
+export { AppProvider, AppContext, useProductContext };

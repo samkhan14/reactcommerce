@@ -4,6 +4,7 @@ import { Categories } from '../../Components/Categories/Categories';
 import { LatestProducts } from '../../Components/Product_Area/LatestProducts';
 import { HotDeals} from '../../Components/Deals_Area/HotDeals';
 import { Brands} from '../../Components/Brands/Brands';
+import { FeaturedProducts } from '../../Components/Product_Area/FeaturedProducts';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
   
      <Banner />
      <Features />
+     <FeaturedProducts/>
     <Categories />
     <LatestProducts />
     <HotDeals />
