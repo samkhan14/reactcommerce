@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import FormatPrice from "../../helpers/FormatPrice";
 
 
  const OneProduct = (curElem) => {
@@ -7,32 +8,32 @@ import { NavLink } from "react-router-dom";
 
 
   return (
-    <div class="single-product">
+    <div className="single-product">
      <NavLink to={`/SingleProduct/${id}`}>
-      <img class="img-fluid" src={image} alt={name} />
+      <img className="img-fluid" src={image} alt={name} />
       </NavLink>
-      <div class="product-details">
+      <div className="product-details">
         <h6>{name}</h6>
-        <div class="price">
-          <h6>{price}</h6>
-          <h6 class="l-through">{category}</h6>
+        <div className="price">
+          <h6>{<FormatPrice price={price} />} </h6>
+          <h6 className="l-through">{category}</h6>
         </div>
-        <div class="prd-bottom">
-          <a href="javascriptvoid(0)" class="social-info">
-            <span class="ti-bag"></span>
-            <p class="hover-text">add to bag</p>
+        <div className="prd-bottom">
+          <a href="javascriptvoid(0)" className="social-info">
+            <span className="ti-bag"></span>
+            <p className="hover-text">add to bag</p>
           </a>
-          <a href="javascriptvoid(0)" class="social-info">
-            <span class="lnr lnr-heart"></span>
-            <p class="hover-text">Wishlist</p>
+          <a href="javascriptvoid(0)" className="social-info">
+            <span className="lnr lnr-heart"></span>
+            <p className="hover-text">Wishlist</p>
           </a>
-          <a href="javascriptvoid(0)" class="social-info">
-            <span class="lnr lnr-sync"></span>
-            <p class="hover-text">compare</p>
+          <a href="javascriptvoid(0)" className="social-info">
+            <span className="lnr lnr-sync"></span>
+            <p className="hover-text">compare</p>
           </a>
-          <a href="javascriptvoid(0)" class="social-info">
-            <span class="lnr lnr-move"></span>
-            <p class="hover-text">view more</p>
+          <a href="javascriptvoid(0)" className="social-info">
+            <span className="lnr lnr-move"></span>
+            <p className="hover-text">view more</p>
           </a>
         </div>
       </div>
