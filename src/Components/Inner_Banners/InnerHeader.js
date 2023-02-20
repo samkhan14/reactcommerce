@@ -16,7 +16,7 @@ import { NavLink } from 'react-router-dom';
 					<h1>{name}</h1>
 					<nav className="d-flex align-items-center">
 						<NavLink to="/">Home<span className="lnr lnr-arrow-right"></span></NavLink>
-						<NavLink to="/Products">{slogan}<span className="lnr"></span></NavLink>
+						<NavLink>{slogan}<span className="lnr"></span></NavLink>
 						{/* <NavLink to="category.html">Fashon Category</NavLink> */}
 					</nav>
 				</div>

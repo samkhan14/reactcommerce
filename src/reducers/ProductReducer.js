@@ -30,6 +30,13 @@ const ProductReducer = (state, action) => {
           isSingleLoading: true,
         };  
 
+    case "SET_SING_PRODUCT_DATA":
+      return {
+        ...state,
+        isSingleLoading:false,
+        singleProduct:action.payload,
+      }    ;
+
     default:
       return state;
   }
