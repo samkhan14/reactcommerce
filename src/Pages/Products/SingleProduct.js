@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useProductContext } from '../../contexts/ProductContaxt';
 import { ProductImage } from '../../Components/Product_Area/ProductImage';
 import FormatPrice from '../../helpers/FormatPrice';
+import { Star } from '../../Components/Product_Area/Star';
 
 const API = "https://api.pujakaitem.com/api/products";
 
@@ -36,25 +37,16 @@ const SingleProduct = () => {
 	<div className="product_image_area">
 		<div className="container">
 			<div className="row s_product_inner">
-				<div className="col-lg-6">
-				<div className="product_images">
+				<div className="col-lg-6">				
 					<ProductImage images={image} />
-				</div>
-					{/* <div className="s_Product_carousel">
-						<div className="single-prd-item">
-							<img className="img-fluid" src="img/category/s-p1.jpg" alt="" />
-						</div>
-						<div className="single-prd-item">
-							<img className="img-fluid" src="img/category/s-p1.jpg" alt="" />
-						</div>
-						<div className="single-prd-item">
-							<img className="img-fluid" src="img/category/s-p1.jpg" alt="" />
-						</div>
-					</div> */}
+					
 				</div>
 				<div className="col-lg-5 offset-lg-1">
 					<div className="s_product_text">
 						<h3>{name}</h3>
+						<div className="stars_and_reviews">
+							<Star stars={stars} reviews={reviews}/>
+						</div>
 						<h2 className="product_price">
 							MRP:&nbsp;
 							<del>
@@ -75,11 +67,11 @@ const SingleProduct = () => {
 						</ul>
 						<p>{description}</p>
 						<div className="product_count">
-							<label for="qty">Quantity:</label>
-							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" className="input-text qty" />
-							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+							<label>Quantity:</label>
+							<input type="text" name="qty" id="sst" maxLength="12" value="1" title="Quantity:" className="input-text qty" />
+							<button onClick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
 							 className="increase items-count" type="button"><i className="lnr lnr-chevron-up"></i></button>
-							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+							<button onClick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
 							 className="reduced items-count" type="button"><i className="lnr lnr-chevron-down"></i></button>
 						</div>
 						<div className="card_area d-flex align-items-center">
@@ -372,22 +364,22 @@ const SingleProduct = () => {
 								<form className="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
 									<div className="col-md-12">
 										<div className="form-group">
-											<input type="text" className="form-control" id="name" name="name" placeholder="Your Full name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Full name'"/>
+											<input type="text" className="form-control" id="name" name="name" placeholder="Your Full name" onFocus="this.placeholder = ''" onblur="this.placeholder = 'Your Full name'"/>
 										</div>
 									</div>
 									<div className="col-md-12">
 										<div className="form-group">
-											<input type="email" className="form-control" id="email" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'"/>
+											<input type="email" className="form-control" id="email" name="email" placeholder="Email Address" onFocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'"/>
 										</div>
 									</div>
 									<div className="col-md-12">
 										<div className="form-group">
-											<input type="text" className="form-control" id="number" name="number" placeholder="Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'"/>
+											<input type="text" className="form-control" id="number" name="number" placeholder="Phone Number" onFocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'"/>
 										</div>
 									</div>
 									<div className="col-md-12">
 										<div className="form-group">
-											<textarea className="form-control" name="message" id="message" rows="1" placeholder="Review" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Review'"></textarea>
+											<textarea className="form-control" name="message" id="message" rows="1" placeholder="Review" onFocus="this.placeholder = ''" onblur="this.placeholder = 'Review'"></textarea>
 										</div>
 									</div>
 									<div className="col-md-12 text-right">
