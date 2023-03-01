@@ -16,3 +16,14 @@ code {
 .in-style {
   position: absolute; left: -5000px;
 }
+.colorsBtn {
+  padding: 5px;
+  border-radius: 20px;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+  cursor: pointer;
+  margin: 5px;
+  border: none;
+  outline: none;
+}

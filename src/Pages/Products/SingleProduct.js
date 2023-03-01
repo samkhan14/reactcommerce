@@ -5,6 +5,7 @@ import { useProductContext } from '../../contexts/ProductContaxt';
 import { ProductImage } from '../../Components/Product_Area/ProductImage';
 import FormatPrice from '../../helpers/FormatPrice';
 import { Star } from '../../Components/Product_Area/Star';
+import { AddToCart } from '../../Components/Product_Area/AddToCart';
 
 const API = "https://api.pujakaitem.com/api/products";
 
@@ -55,8 +56,7 @@ const SingleProduct = () => {
 						</h2>
 						<h5 className="product_price">
 							Deal of the Day:&nbsp;							
-							<u><FormatPrice price={price} /></u>
-							
+							<u><FormatPrice price={price} /></u>							
 						</h5>
 						<h2>
 							
@@ -64,20 +64,24 @@ const SingleProduct = () => {
 						<ul className="list">
 							<li><Link className="active" to="#"><span>Category</span> : {category}</Link></li>
 							<li><Link><span>Availibility</span> : {stock > 0 ? "In Stock" : "Out of Stock"}</Link></li>
-						</ul>
-						<p>{description}</p>
-						<div className="product_count">
+							<li><Link><span>Brand</span> : {company}</Link></li>
+						</ul>						
+						<p className='mb-2'>{description}</p>						
+						<hr />
+						{ stock > 0 && <AddToCart product={singleProduct} /> }
+						
+						{/* <div className="product_count">
 							<label>Quantity:</label>
 							<input type="text" name="qty" id="sst" maxLength="12" value="1" title="Quantity:" className="input-text qty" />
 							<button onClick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
 							 className="increase items-count" type="button"><i className="lnr lnr-chevron-up"></i></button>
 							<button onClick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
 							 className="reduced items-count" type="button"><i className="lnr lnr-chevron-down"></i></button>
-						</div>
+						</div> */}
 						<div className="card_area d-flex align-items-center">
-							<Link className="primary-btn" to="#">Add to Cart</Link>
-							<Link className="icon_btn" to="#"><i className="lnr lnr lnr-diamond"></i></Link>
-							<Link className="icon_btn" to="#"><i className="lnr lnr lnr-heart"></i></Link>
+							<Link className="primary-btn" to="/cart">Add to Cart</Link>
+							{/* <Link className="icon_btn" to="#"><i className="lnr lnr lnr-diamond"></i></Link>
+							<Link className="icon_btn" to="#"><i className="lnr lnr lnr-heart"></i></Link> */}
 						</div>
 					</div>
 				</div>
