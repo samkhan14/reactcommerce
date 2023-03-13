@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useFilterContext } from '../../contexts/Filter_context'
 
 
 export const ProductFilterBaar = () => {
-  return (
+  const { grid_view, setGridView, setListView, filter_products } = useFilterContext();
+  
+	return (
    <>
    	{/* Start Filter Bar */}
        <div className="filter-bar d-flex flex-wrap align-items-center">
@@ -15,11 +18,16 @@ export const ProductFilterBaar = () => {
 						</select>
 					</div>
 					<div className="sorting mr-auto">
-						<select>
+						{/* <select>
 							<option value="1">Show 12</option>
 							<option value="1">Show 12</option>
 							<option value="1">Show 12</option>
-						</select>
+						</select> */}
+						<p className='m-0 text-white'>Products: {filter_products.length}</p>
+					</div>
+					<div class="filter-buttons d-flex mr-auto">						
+						<div className={grid_view ? "active grid-view-button" : "grid-view-button"} onClick={setGridView}><i class="fa fa-th-large" aria-hidden="true"></i></div>
+						<div className={!grid_view ? "active list-view-button" : "list-view-button" } onClick={setListView}><i class="fa fa-bars" aria-hidden="true"></i></div>
 					</div>
 					<div className="pagination">
 						<Link href="#" className="prev-arrow"><i className="fa fa-long-arrow-left" aria-hidden="true"></i></Link>

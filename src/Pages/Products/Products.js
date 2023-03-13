@@ -12,8 +12,8 @@ const Products = () => {
     slogan: "Shop",
   };
 
-  const { filter_products } = useFilterContext();
-  console.log("filter products", filter_products);
+  // const { filter_products } = useFilterContext();
+  // console.log("filter products", filter_products);
 
   return (
     <div>
@@ -23,6 +23,7 @@ const Products = () => {
         <div className="row">
           <ProductFilterSection />
           <div className="col-xl-9 col-lg-8 col-md-7">
+         
             <ProductFilterBaar />
             {/* Start Best Seller */}
             <section className="lattest-product-area pb-40 category-list">

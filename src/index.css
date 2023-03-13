@@ -27,3 +27,26 @@ code {
   border: none;
   outline: none;
 }
+.list-view-button,
+.grid-view-button {
+  color: white;
+  border: 1px solid white;
+  padding: 0px 6px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.list-view-button:hover,
+.grid-view-button:hover {
+  background: white;
+  color: #0e2439;
+}
+
+.list-view-button {
+  margin-right: 10px;
+}
+
+ .category-list .single-product {
+  margin-bottom: 0;
+}

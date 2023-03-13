@@ -1,11 +1,12 @@
 import React from "react";
 import { useFilterContext } from "../../contexts/Filter_context";
 import { OneProduct } from "./OneProduct";
+import { OneProductListView } from "./OneProductListView";
 
 export const ShopPageProducts = () => {
-  const { filter_products, setGridView } = useFilterContext();
+  const { filter_products, grid_view } = useFilterContext();
 
-  if (setGridView) {
+  if (grid_view === true) {
     return (
       <div className="row">
         {/* single product  */}
@@ -20,11 +21,20 @@ export const ShopPageProducts = () => {
     );
   }
 
-//   if (setGridView === false) {
-//     return <div>There is no any List View</div>;
-//   }
-
-  //   return (
-
-  //   )
+  if (grid_view === false) {
+    return (
+      <div className="productsByListView"> 
+      <div className="row">
+        {filter_products.map((curElem) => {
+          return (
+            <div className="col-lg-12 ">
+              <OneProductListView key={curElem.id}{...curElem} />
+            </div>
+          )
+        })
+        }
+      </div>
+      </div>
+    )
+  }  
 };
