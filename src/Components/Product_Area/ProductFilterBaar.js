@@ -4,18 +4,21 @@ import { useFilterContext } from '../../contexts/Filter_context'
 
 
 export const ProductFilterBaar = () => {
-  const { grid_view, setGridView, setListView, filter_products } = useFilterContext();
+  const { grid_view, setGridView, setListView, filter_products, priceSorting } = useFilterContext();
   
 	return (
    <>
    	{/* Start Filter Bar */}
        <div className="filter-bar d-flex flex-wrap align-items-center">
-					<div className="sorting">
-						<select>
-							<option value="1">Default sorting</option>
-							<option value="1">Default sorting</option>
-							<option value="1">Default sorting</option>
+					<div className="sorting price-sorting">
+						<from>
+						<select name="priceSort" id="priceSort" onClick={priceSorting}>
+							<option value="lowest">Lowest</option>
+							<option value="highest">Highest</option>
+							<option value="a-z">A-Z</option>
+							<option value="z-a">Z-A</option>
 						</select>
+						</from>
 					</div>
 					<div className="sorting mr-auto">
 						{/* <select>
