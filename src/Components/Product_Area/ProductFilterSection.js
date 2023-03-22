@@ -1,10 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useFilterContext } from '../../contexts/Filter_context'
 
 export const ProductFilterSection = () => {
+  const { 
+    filters_search: {searchText},
+    updateSearchFilterValue
+   } = useFilterContext();
+
   return (
-    <div className="col-xl-3 col-lg-4 col-md-5">
-    <div className="sidebar-categories">
+    <div className="col-xl-3 col-lg-4 col-md-5">      
+    <div className="sidebar-categories">     
+    <div className="searchProductArea">
+
+      <div className="head">Search Product</div>
+      <form className="mt-3 mb-3" onClick={(e)=> e.preventDefault()}>
+        <input class="form-control form-control-lg" type="text" name="searchText" value={searchText} onChange={updateSearchFilterValue} />
+      </form>
+      </div>
+
       <div className="head">Browse Categories</div>
       <ul className="main-categories">
         <li className="main-nav-list"><Link data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false" aria-controls="fruitsVegetable"><span
@@ -112,7 +126,7 @@ export const ProductFilterSection = () => {
         </li>
       </ul>
     </div>
-    <div className="sidebar-filter mt-50">
+    {/* <div className="sidebar-filter mt-50">
       <div className="top-filter-head">Product Filters</div>
       <div className="common-filter">
         <div className="head">Brands</div>
@@ -154,7 +168,7 @@ export const ProductFilterSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
   </div>
   )
 }
