@@ -11,6 +11,8 @@ const initialState = {
   price_sorting_value: "lowest",
   filters_search: {
     searchText:"",
+    category:"all",
+    company:"all"
   }
 };
 
