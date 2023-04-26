@@ -50,3 +50,13 @@ code {
  .category-list .single-product {
   margin-bottom: 0;
 }
+
+div#productColors form ul {
+  display: flex;
+  justify-content: center;
+}
+
+div#productColors form ul li {
+  padding-left: 0;
+}
+

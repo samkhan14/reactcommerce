@@ -12,8 +12,9 @@ const initialState = {
   filters_search: {
     searchText:"",
     category:"all",
-    company:"all"
-  }
+    company:"all",
+    color:"all"
+  },
 };
 
 export const FilterContextProvider = ({ children }) => {

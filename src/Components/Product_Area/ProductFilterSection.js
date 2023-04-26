@@ -4,23 +4,28 @@ import { useFilterContext } from "../../contexts/Filter_context";
 
 export const ProductFilterSection = () => {
   const {
-    filters_search: { searchText, category, company },
+    filters_search: { searchText, category, company, color },
     all_products,
     updateSearchFilterValue,
   } = useFilterContext();
 
   //  function for get unique data
-  const getUniqueData = (data, property) => {
+  const getUniqueData = (data, attr) => {
     let newVal = data.map((curElem) => {
-      return curElem[property];
+      return curElem[attr];
     });
+
+    if (attr === "colors") {
+      newVal = newVal.flat();
+    }
     return (newVal = ["All", ...new Set(newVal)]);
   };
 
   //  get unique data for categories
   const categoryOnlyData = getUniqueData(all_products, "category");
   const brandOnlyData = getUniqueData(all_products, "company");
-  console.log(brandOnlyData);
+  const colorsData = getUniqueData(all_products, "colors");
+  // console.log(colorsData);
 
   return (
     <div className="col-xl-3 col-lg-4 col-md-5">
@@ -39,27 +44,36 @@ export const ProductFilterSection = () => {
         </div>
 
         <div className="head">Browse Categories</div>
-        
-          {categoryOnlyData.map((curElem, index) => {
-            return (
-              // <li className="main-nav-list">
-              //   <Link
-              //     href="javaScript:void(0);"
-              //     key={index}
-              //     name="category"
-              //     value={curElem}
-              //     onClick={updateSearchFilterValue}
-              //   >
-              //     {" "}
-              //     {curElem}
-              //   </Link>
-              // </li>
-              <li className="main-nav-list">
-              <button type="button" className="btn btn-primary" key={index} value={curElem} name="category"  onClick={updateSearchFilterValue}>{curElem}</button>
-              </li>
-            );
-          })}
-          {/* <li className="main-nav-list"><Link data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false" aria-controls="fruitsVegetable"><span
+
+        {categoryOnlyData.map((curElem, index) => {
+          return (
+            // <li className="main-nav-list">
+            //   <Link
+            //     href="javaScript:void(0);"
+            //     key={index}
+            //     name="category"
+            //     value={curElem}
+            //     onClick={updateSearchFilterValue}
+            //   >
+            //     {" "}
+            //     {curElem}
+            //   </Link>
+            // </li>
+            <li className="main-nav-list">
+              <button
+                type="button"
+                className="btn btn-primary"
+                key={index}
+                value={curElem}
+                name="category"
+                onClick={updateSearchFilterValue}
+              >
+                {curElem}
+              </button>
+            </li>
+          );
+        })}
+        {/* <li className="main-nav-list"><Link data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false" aria-controls="fruitsVegetable"><span
              className="lnr lnr-arrow-right"></span>Fruits and Vegetables<span className="number">(53)</span></Link>
           <ul className="collapse" id="fruitsVegetable" data-toggle="collapse" aria-controls="fruitsVegetable">
             <li className="main-nav-list child"><Link href="#">Frozen Fish<span className="number">(13)</span></Link></li>
@@ -70,38 +84,68 @@ export const ProductFilterSection = () => {
           </ul>
         </li> */}
 
-          {/* <li className="main-nav-list"><Link href="#">Pet Care<span className="number">(29)</span></Link></li>        */}
-        
+        {/* <li className="main-nav-list"><Link href="#">Pet Care<span className="number">(29)</span></Link></li>        */}
       </div>
       <div className="sidebar-filter mt-50">
-      <div className="top-filter-head">Product Filters</div>
-      <div className="common-filter">
-        <div className="head">Brands</div>
-        <form action="#">
-          <ul>
-            {brandOnlyData.map((curElem, index) => {
-              return <li className="filter-list"><input key={index} className="pixel-radio" type="radio" id="apple" value={curElem} name="company" onClick={updateSearchFilterValue} /><label for="apple">{curElem}<span>(29)</span></label></li> 
-            })
-            }
-           
-          </ul>
-        </form>
-      </div>
-      {/* <div className="common-filter">
-        <div className="head">Color</div>
-        <form action="#">
-          <ul>
-            <li className="filter-list"><input className="pixel-radio" type="radio" id="black" name="color"/><label for="black">Black<span>(29)</span></label></li>
-            <li className="filter-list"><input className="pixel-radio" type="radio" id="balckleather" name="color"/><label for="balckleather">Black
+        <div className="top-filter-head">Product Filters</div>
+        <div className="common-filter">
+          <div className="head">Brands</div>
+          <form action="#">
+            <ul>
+              {brandOnlyData.map((curElem, index) => {
+                return (
+                  <li className="filter-list">
+                    <input
+                      key={index}
+                      className="pixel-radio"
+                      type="radio"
+                      id="apple"
+                      value={curElem}
+                      name="company"
+                      onClick={updateSearchFilterValue}
+                    />
+                    <label for="apple">
+                      {curElem}
+                      <span>(29)</span>
+                    </label>
+                  </li>
+                );
+              })}
+            </ul>
+          </form>
+        </div>
+        <div className="common-filter" id="productColors">
+          <div className="head">Colors</div>
+          <form action="#">
+            <ul>
+              {colorsData.map((curColor, index) => {
+                return (
+                  <li className="filter-list">
+                    <button className="btn btn-primary" key={index} type="button" name="color" value={curColor} style={{ backgroundColor: curColor }}  onClick={updateSearchFilterValue}> {color === curColor ? "" : null}</button>
+                    {/* <input
+                      className="pixel-radio"
+                      key={index}
+                      type="radio"                      
+                      name="color"
+                      value={curColor}
+                      style={{ backgroundColor: curColor }}
+                      onClick={updateSearchFilterValue}
+                      
+                    /> */}
+                  </li>
+                );
+              })}
+
+              {/* <li className="filter-list"><input className="pixel-radio" type="radio" id="balckleather" name="color"/><label for="balckleather">Black
                 Leather<span>(29)</span></label></li>
             <li className="filter-list"><input className="pixel-radio" type="radio" id="blackred" name="color"/><label for="blackred">Black
                 with red<span>(19)</span></label></li>
             <li className="filter-list"><input className="pixel-radio" type="radio" id="gold" name="color"/><label for="gold">Gold<span>(19)</span></label></li>
-            <li className="filter-list"><input className="pixel-radio" type="radio" id="spacegrey" name="color"/><label for="spacegrey">Spacegrey<span>(19)</span></label></li>
-          </ul>
-        </form>
-      </div>
-      <div className="common-filter">
+            <li className="filter-list"><input className="pixel-radio" type="radio" id="spacegrey" name="color"/><label for="spacegrey">Spacegrey<span>(19)</span></label></li> */}
+            </ul>
+          </form>
+        </div>
+        {/* <div className="common-filter">
         <div className="head">Price</div>
         <div className="price-range-area">
           <div id="price-range"></div>
@@ -115,7 +159,7 @@ export const ProductFilterSection = () => {
           </div>
         </div>
       </div> */}
-    </div>
+      </div>
     </div>
   );
 };
